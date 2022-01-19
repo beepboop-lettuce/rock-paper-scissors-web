@@ -1,7 +1,6 @@
 package rps
 
 import (
-	"fmt"
 	"math/rand"
 	"time"
 )
@@ -16,6 +15,7 @@ func PlayRound(playerValue int) (int, string, string) {
 	rand.Seed(time.Now().UnixNano())
 	computerValue := rand.Intn(3)
 	computerChoice := ""
+	roundResult := ""
 
 	switch computerValue {
 	case ROCK:
@@ -31,16 +31,11 @@ func PlayRound(playerValue int) (int, string, string) {
 	}
 
 	if playerValue == computerValue {
-		fmt.Println("It's a draw")
-		// *** decrement i by 1, since we're repeating the round
-		i--
-	} else if playerValue == -1 {
-		fmt.Println("Invalid choice!")
-		i--
+		roundResult = "It's a draw"
 	} else if playerValue == (computerValue+1)%3 {
-		playerScore = playerWins(playerScore)
+		roundResult = "Player wins!"
 	} else {
-		computerScore = computerWins(computerScore)
+		roundResult = "Computer wins!"
 	}
 
 	return 0, "", ""
