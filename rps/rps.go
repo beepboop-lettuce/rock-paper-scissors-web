@@ -19,6 +19,7 @@ func PlayRound(playerValue int) (int, string, string) {
 	computerValue := rand.Intn(3)
 	computerChoice := ""
 	roundResult := ""
+	winner := 0
 
 	switch computerValue {
 	case ROCK:
@@ -35,10 +36,13 @@ func PlayRound(playerValue int) (int, string, string) {
 
 	if playerValue == computerValue {
 		roundResult = "It's a draw"
+		winner = DRAW
 	} else if playerValue == (computerValue+1)%3 {
 		roundResult = "Player wins!"
+		winner = PLAYERWINS
 	} else {
 		roundResult = "Computer wins!"
+		winner = COMPUTERWINS
 	}
 
 	return 0, computerChoice, roundResult
