@@ -45,5 +45,5 @@ func PlayRound(playerValue int) (int, string, string) {
 		winner = COMPUTERWINS
 	}
 
-	return 0, computerChoice, roundResult
+	return winner, computerChoice, roundResult
 }
