@@ -9,12 +9,10 @@ import (
 
 func homePage(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "index.html")
-
 }
 
 func playRound(w http.ResponseWriter, r *http.Request) {
-	winner, computerChoice, roundResult := rps.PlayRound(1)
-	log.Println(winner, computerChoice, roundResult)
+	result := rps.PlayRound(1)
 
 }
 
