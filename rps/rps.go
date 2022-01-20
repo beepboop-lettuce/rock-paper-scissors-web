@@ -9,15 +9,33 @@ const (
 	ROCK         = 0 // beats scissors. (scissors +1) % 3 = 0
 	PAPER        = 1 // beats rock. (rock + 1) % 3 = 1
 	SCISSORS     = 2 // beats paper. (paper + 1) % 3 = 2
-	PLAYERWINS   = 1
-	COMPUTERWINS = 2
-	DRAW         = 3
+//	PLAYERWINS   = 1
+//	COMPUTERWINS = 2
+//	DRAW         = 3
 )
 
 type Round struct {
-	Winner         int    `json:"winner"`
+	Message        string    `json:"message"`
 	ComputerChoice string `json:"computer_choice"`
 	RoundResult    string `json:"round_result"`
+}
+
+var winMessages = []string{
+	"Good job!",
+	"Nice work!",
+	"You should buy a lottery ticket",
+}
+
+var loseMessages = []string{
+	"Too bad!",
+	"Try again!",
+	"This is just not your day.",
+}
+
+var drawMessages []string{
+	"Great minds think alike.",
+	"Uh oh. Try again.",
+	"Nobody wins, but you can try again",
 }
 
 func PlayRound(playerValue int) Round {
